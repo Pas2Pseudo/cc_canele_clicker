@@ -3,21 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Canelé Clicker</title>
+        <link rel="stylesheet" type="text/css" href="ressource/css/index.css"/>
+        <script type="module" src="/ressource/script/cuisson.js"></script>
+        <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
     </head>
-    <body>
-        <h1>
+    <h1>
             Canelé Clicker
         </h1>
-        <img src="ressource/img/background.jfif"/>
+        <img src="/ressource/img/background.jfif" class="img"/>
 
-        <p>Vous avez 0 canelé(s)</p>
+        <p id="canele">Vous avez 0 canelé</p>
 
-        <button>
+        <button onclick=incrementCanele()>
             Cuisinier
         </button>
 
         <button>
-
+            Acheter un four (25 canelés)
         </button>
+
+        <h3>Le magasin en construction</h3>
     </body>
+
+    <script>
+    </script>
 </html>
