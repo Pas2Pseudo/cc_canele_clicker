@@ -1,6 +1,10 @@
 let canele = 0;
 let furnace = 0;
 
+let buyAudio = new Audio('buy.mp3');
+
+let comments = [];
+
 function incrementCanele() {
     canele = canele + 1 + furnace;
     updateBtn();
@@ -10,7 +14,7 @@ function buyFurnace() {
     canele = canele - 25;
     furnace++;
     updateBtn();
-    
+    buyAudio.play();
 }
 
 function updateBtn() {
@@ -21,4 +25,14 @@ function updateBtn() {
         document.getElementById('furnace').disabled = true;
     }
     document.getElementById('furnaces').innerHTML = "Vous avez " + furnace + " foure" + (furnace > 1 ? "s" : "") + " (Bonus : x" + furnace + ")";
+}
+
+function addComment() {
+    comments.push(document.getElementById('comment').value);
+    document.getElementById('comment').value = "";
+    comments.reverse();
+
+    let comts = "";
+    comments.forEach(value => comts = comts + "<br>" + value);
+    document.getElementById('comments').innerHTML = comts;
 }
