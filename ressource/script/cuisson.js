@@ -16,6 +16,7 @@ function init() {
     }
     if (localStorage.getItem("furnace") != null) {
         furnace = parseInt(localStorage.getItem("furnace"));
+        startTask();
     }
     if (localStorage.getItem("comments") != null) {
         comments = localStorage.getItem("comments").split(",");
@@ -29,19 +30,13 @@ function incrementCanele() {
     updateBtn();
     localStorage.setItem("canele", canele);
 }
-
 function buyFurnace() {
+
     canele = canele - 25;
     furnace++;
     updateBtn();
+    startTask();
     localStorage.setItem("furnace", furnace);
-
-    if (furnace >= 5) {
-        task = window.setInterval(function(){
-            canele++;
-            updateBtn();
-        }, 1000);
-    }
 }
 
 function updateBtn() {
@@ -68,4 +63,15 @@ function printComments() {
     let comts = "";
     comments.reverse().forEach(value => comts = comts + "<br>" + value);
     document.getElementById('comments').innerHTML = comts;
+}
+
+
+function startTask() {
+    if (furnace >= 5) {
+        task = window.setInterval(function () {
+            canele++;
+            localStorage.setItem("canele", canele);
+            updateBtn();
+        }, 1000);
+    }
 }
