@@ -45,7 +45,13 @@ function updateBtn() {
     } else if (document.getElementById('furnace').disabled == false){
         document.getElementById('furnace').disabled = true;
     }
-    document.getElementById('furnaces').innerHTML = "Vous avez " + furnace + " foure" + (furnace > 1 ? "s" : "") + " (Bonus : x" + furnace + ")";
+    document.getElementById('furnaces').innerHTML = "Vous avez " + furnace + " four" + (furnace > 1 ? "s" : "") + " (Bonus : x" + furnace + ")";
+
+    let furnaces = "";
+    for (let i = 1; i <= furnace; i++) {
+        furnaces = furnaces + "<img src='https://cdn-icons-png.flaticon.com/512/3095/3095330.png' height='35px'>";
+    }
+    document.getElementById("img-furnaces").innerHTML = furnaces;
 }
 
 function addComment() {
