@@ -31,7 +31,6 @@ function incrementCanele() {
     localStorage.setItem("canele", canele);
 }
 function buyFurnace() {
-
     canele = canele - 25;
     furnace++;
     updateBtn();
