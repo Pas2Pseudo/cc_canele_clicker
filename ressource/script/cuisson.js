@@ -19,7 +19,7 @@ function init() {
         startTask();
     }
     if (localStorage.getItem("comments") != null) {
-        comments = localStorage.getItem("comments").split(",");
+        comments = localStorage.getItem("comments").split("/@{~}@/");
         printComments();
     }
     updateBtn();
@@ -54,14 +54,14 @@ function addComment() {
     comments.push(comm);
     document.getElementById('comment').value = "";
 
-    localStorage.setItem("comments", comments)
+    localStorage.setItem("comments", serialize(comments));
 
     printComments();
 }
 
 function printComments() {
     let comts = "";
-    comments.reverse().forEach(value => comts = comts + "<br>" + value);
+    comments.forEach(value => comts = comts + "<br>" + value);
     document.getElementById('comments').innerHTML = comts;
 }
 
@@ -74,4 +74,10 @@ function startTask() {
             updateBtn();
         }, 1000);
     }
+}
+
+function serialize(list) {
+    let result = "";
+    list.forEach(value => result = result + "/@{~}@/" + value);
+    return result;
 }
