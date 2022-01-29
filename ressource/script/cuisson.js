@@ -39,7 +39,7 @@ function buyFurnace() {
 }
 
 function updateBtn() {
-    document.getElementById('canele').innerHTML = "Vous avez " + canele + " canelé" + (canele > 1 ? "s" : "");
+    document.getElementById('canele').innerHTML = "Vous avez " + canele + " canelé" + (canele > 1 ? "s" : "") + " soit " + (canele * 0.5) + "€ selon carrouf (vive le capitalisme)";
     if (canele >= 25) {
         document.getElementById('furnace').disabled = false;
     } else if (document.getElementById('furnace').disabled == false){
