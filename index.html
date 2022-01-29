@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <title>Canelé Clicker</title>
         <link rel="stylesheet" type="text/css" href="ressource/css/index.css"/>
-        <script type="module" src="/ressource/script/cuisson.js"></script>
-        <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+        <script src="ressource/script/cuisson.js"></script>
     </head>
     <h1>
             Canelé Clicker
@@ -13,12 +12,13 @@
         <img src="/ressource/img/background.jfif" class="img"/>
 
         <p id="canele">Vous avez 0 canelé</p>
+        <p id="furnaces">Vous avez 0 foure (Bonus : x0)</p>
 
-        <button onclick=incrementCanele()>
+        <button onclick="incrementCanele()">
             Cuisinier
         </button>
 
-        <button>
+        <button id="furnace" disabled onclick="buyFurnace()">
             Acheter un four (25 canelés)
         </button>
 
