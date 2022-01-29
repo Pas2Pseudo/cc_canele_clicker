@@ -3,7 +3,7 @@ let furnace = 0;
 
 let comments = [];
 
-var task;
+var task = false;
 
 window.onload = function () {
     init();
@@ -66,12 +66,15 @@ function printComments() {
 
 
 function startTask() {
-    if (furnace >= 5) {
-        task = window.setInterval(function () {
-            canele++;
-            localStorage.setItem("canele", canele);
-            updateBtn();
+    if (furnace >= 5 && !task) {
+        window.setInterval(function () {
+            for (let i = 1; i <= furnace; i++) {
+                canele++;
+                localStorage.setItem("canele", canele);
+                updateBtn();
+            }
         }, 1000);
+        task = true;
     }
 }
 
